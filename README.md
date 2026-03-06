@@ -27,10 +27,4 @@ cd ChudWareSrc
 ./gradlew build
 ```
 
-Build output:
-- `ChudWareSrc/build/libs/`
 
-## Notes
-
-- Source code is in `ChudWareSrc/src/main/java`
-- Resources are in `ChudWareSrc/src/main/resources`
