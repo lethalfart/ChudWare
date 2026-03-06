@@ -31,4 +31,4 @@ cd ChudWareSrc
 ```
 
 
-**also feel free to fork this and mess around with it as you please. But if you upload it publicly pls give me credit :D)**
+**also feel free to fork this and mess around with it as you please. But if you upload it publicly pls give me credit :D**
