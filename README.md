@@ -1,4 +1,4 @@
-**# ChudWare**
+# **ChudWare**
 
 ChudWare is a Forge-based Minecraft client for **1.8.9**.
 It is **free** and **fully open source**.
