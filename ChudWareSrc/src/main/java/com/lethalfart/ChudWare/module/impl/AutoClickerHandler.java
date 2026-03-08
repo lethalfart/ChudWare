@@ -155,7 +155,12 @@ public class AutoClickerHandler
                 KeyBinding.onTick(key);
             }
 
-            long holdMs = Math.max(15L, period / 3L) + (long)(r.nextGaussian() * 3.0);
+            if (r.nextInt(100) < 5) {
+                period += 80L + r.nextInt(120);
+            }
+
+            long jitter = (long)(r.nextGaussian() * 12.0) + (r.nextInt(20) - 10);
+            long holdMs = Math.max(15L, period / 3L) + jitter;
             sleepMs(holdMs);
 
             if (key != -1)
@@ -179,10 +184,10 @@ public class AutoClickerHandler
 
         if (now > slowdownWindowUntil)
         {
-            boolean roll       = r.nextInt(100) < 15;
+            boolean roll       = r.nextInt(100) < 6;
             slowdownActive     = roll;
-            slowdownMultiplier = roll ? (1.1D + r.nextDouble() * 0.15D) : 1.0D;
-            slowdownWindowUntil = now + 500L + r.nextInt(1500);
+            slowdownMultiplier = roll ? (1.05D + r.nextDouble() * 0.08D) : 1.0D;
+            slowdownWindowUntil = now + 1500L + r.nextInt(3000);
         }
         if (slowdownActive)
         {
@@ -191,11 +196,11 @@ public class AutoClickerHandler
 
         if (now > stallWindowUntil)
         {
-            if (r.nextInt(100) < 20)
+            if (r.nextInt(100) < 8)
             {
-                period += 50L + r.nextInt(100);
+                period += 30L + r.nextInt(60);
             }
-            stallWindowUntil = now + 500L + r.nextInt(1500);
+            stallWindowUntil = now + 1500L + r.nextInt(3000);
         }
 
         return period;
@@ -207,9 +212,12 @@ public class AutoClickerHandler
         float max = autoClickerModule.getMaxCps();
         if (max < min) { float t = min; min = max; max = t; }
 
-        double spanMin = Math.max(1.0D, min - 0.2D);
-        double range   = Math.max(0.0001D, max - spanMin);
-        return spanMin + (r.nextDouble() * range) + (0.3D * r.nextDouble());
+        double range = Math.max(0.0001D, max - min);
+        if (r.nextInt(100) < 20) {
+            return r.nextBoolean() ? min + (r.nextDouble() * range * 0.15D)
+                    : max - (r.nextDouble() * range * 0.15D);
+        }
+        return min + (r.nextDouble() * range);
     }
 
     private void sleepMs(long ms)
