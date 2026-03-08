@@ -28,7 +28,6 @@ import com.lethalfart.ChudWare.module.impl.FullBrightHandler;
 import com.lethalfart.ChudWare.module.impl.FullBrightModule;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.FMLCommonHandler;
-import com.lethalfart.ChudWare.util.FocusRecoveryHandler;
 
 public class ClientProxy extends CommonProxy
 {
@@ -64,7 +63,6 @@ public class ClientProxy extends CommonProxy
         }, "ChudWare-ConfigSave"));
 
         FMLCommonHandler.instance().bus().register(new UpdateEventDispatcher());
-        FMLCommonHandler.instance().bus().register(new FocusRecoveryHandler());
         FMLCommonHandler.instance().bus().register(new PacketEventBridge());
 
         AutoPotHandler autoPotHandler = null;
