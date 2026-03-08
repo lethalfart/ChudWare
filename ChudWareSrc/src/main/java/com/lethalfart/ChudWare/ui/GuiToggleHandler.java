@@ -55,14 +55,13 @@ public class GuiToggleHandler
         int eventKey = Keyboard.getEventKey();
         if (Keyboard.getEventKeyState() && eventKey != Keyboard.KEY_NONE)
         {
-
             for (Module module : moduleManager.getModules())
             {
                 if (module.getKeyBind() == eventKey)
                 {
                     if (module instanceof AutoPotModule)
                     {
-                        if (autoPotHandler != null)
+                        if (autoPotHandler != null && !isVanillaGuiOpenKey(mc, eventKey))
                         {
                             autoPotHandler.onKeyPress();
                         }
@@ -75,5 +74,22 @@ public class GuiToggleHandler
                 }
             }
         }
+    }
+
+    private boolean isVanillaGuiOpenKey(Minecraft mc, int eventKey)
+    {
+        if (eventKey == Keyboard.KEY_ESCAPE)
+        {
+            return true;
+        }
+
+        if (mc == null || mc.gameSettings == null)
+        {
+            return false;
+        }
+
+        return eventKey == mc.gameSettings.keyBindInventory.getKeyCode()
+                || eventKey == mc.gameSettings.keyBindChat.getKeyCode()
+                || eventKey == mc.gameSettings.keyBindCommand.getKeyCode();
     }
 }
