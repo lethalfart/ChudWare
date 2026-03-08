@@ -14,6 +14,7 @@ It is **free** and **fully open source**.
 - FullBright
 - Reach
 - Velocity
+- AutoPot
 
 
 I am actively working on adding more modules :D
