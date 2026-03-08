@@ -85,7 +85,7 @@ public class AutoPotHandler
         }
         if (mc.currentScreen != null)
         {
-            reset(true);
+            reset(false);
             return;
         }
 
