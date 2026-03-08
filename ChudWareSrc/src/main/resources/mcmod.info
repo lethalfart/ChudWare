@@ -1,0 +1,16 @@
+[
+{
+  "modid": "ChudWare",
+  "name": "ChudWare",
+  "description": "billions must cheat",
+  "version": "${version}",
+  "mcversion": "${mcversion}",
+  "url": "",
+  "updateUrl": "",
+  "authorList": ["lethalfart"],
+  "credits": "lethalfart",
+  "logoFile": "assets/chudware/logo.png",
+  "screenshots": [],
+  "dependencies": []
+}
+]
