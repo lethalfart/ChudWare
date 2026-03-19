@@ -15,6 +15,7 @@ It is **free** and **fully open source**.
 - Reach
 - Velocity
 - AutoPot
+- Refill
 
 
 I am actively working on adding more modules :D
